@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: turbochat
+  password: nff
+
+development:
+  <<: *default
+  database: turbochat_development
+
+test:
+  <<: *default
+  database: turbochat_test
+
+production:
+  <<: *default
+  database: turbochat_production
+  username: turbochat
+  password: <%= ENV["TURBOCHAT_DATABASE_PASSWORD"] %>
